@@ -1,0 +1,65 @@
+<!--
+    Name: Vincent Gordon
+    Email: vincent_gordon@student.uml.edu
+    Copyright (c) 2023 by Vincent.
+    Date of file creation: May 28th 2023 at 12:32 pm
+    Last updated by Vincent June 16th 2023 at 1:53 pm
+    This web page displays a form with numeric inputs corresponding to the minimum and maximum values for a multiplication table. 
+    It also now allows for sliders to dynamically create the table and tabs to save said tables on.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Multiplication table</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/jquery-ui-git.js"></script>
+        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    </head>
+    <body>
+        <div id="page">
+            <!--Form to gather the minimums and maximums. The onsubmit is to ensure the page does not refresh, paired with the javascript.-->
+            <div class="row">
+                <div class="col-sm-12 col-md-3 col-lg-3" id="formDiv">
+                    <form method="post" id="form" onsubmit="return formSubmit();">
+                        <label for="minRow">Minimum row value</label>
+                        <input type="number" step="any" class="form-control" id="minRow" value="0" onKeyPress="if(this.value.length==4) return false;">
+                        <div id="minRowSlider" value="0" class="slider"></div>
+                        <p id="minRowError" class="error"></p>
+                    
+                        <label for="maxRow">Maximum row value</label>
+                        <input type="number" step="any" class="form-control" id="maxRow" value="0" onKeyPress="if(this.value.length==4) return false;">
+                        <div id="maxRowSlider" value="0" class="slider"></div>
+                        <p id="maxRowError" class="error"></p>
+                    
+                        <label for="minCol">Minimum column value</label>
+                        <input type="number" step="any" class="form-control" id="minCol" value="0" onKeyPress="if(this.value.length==4) return false;">
+                        <div id="minColSlider" value="0" class="slider"></div>
+                        <p id="minColError" class="error"></p>
+                    
+                        <label for="maxCol">Maximum column value</label>
+                        <input type="number" step="any" class="form-control" id="maxCol" value="0" onKeyPress="if(this.value.length==4) return false;">
+                        <div id="maxColSlider" value="0" class="slider"></div>
+                        <p id="maxColError" class="error"></p>
+
+                        <button type="button" id="createTable" class="btn btn-success">Create Table</button>
+                    </form>
+                </div>
+    
+                <!--This is the div that the table will be populated inside of.-->
+                <div class="col-sm-12 col-md-9 col-lg-9" id="tableDiv">
+                    <div id="table"></div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/function.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>
